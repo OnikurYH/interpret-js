@@ -2,14 +2,21 @@
   "name": "interpret-js",
   "version": "0.0.1",
   "description": "Interpret / translate text on Javascript",
-  "main": "index.js",
+  "main": "src/interpret",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "./node_modules/.bin/webpack"
   },
   "keywords": [
     "interpret",
     "translate"
   ],
   "author": "OnikurYH <onikuryh@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.22.1",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.22.0",
+    "webpack": "^1.14.0"
+  },
+  "dependencies": {}
 }
