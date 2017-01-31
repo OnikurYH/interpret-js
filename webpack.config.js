@@ -1,15 +1,16 @@
 const webpack = require("webpack");
 const path = require("path");
 
-module.exports = (function () {
-  const MAIN_FILE = path.resolve(__dirname, "src", "interpret");
+const MAIN_FILE = path.resolve(__dirname, "src", "interpret");
 
+function commonConfig () {
   let config = {};
 
   config.entry = {
     "interpret": MAIN_FILE,
     "interpret.min": MAIN_FILE
   };
+  //config.entry[`${__dirname}/examples/js/interpret.min`] = MAIN_FILE;
 
   config.devtool = "source-map";
 
@@ -18,7 +19,7 @@ module.exports = (function () {
   };
 
   config.output = {
-    libraryTarget: "var",
+    libraryTarget: "window",
     library: "InterpretJS",
     filename: "[name].js",
     sourceMapFilename: "[file].map",
@@ -46,4 +47,15 @@ module.exports = (function () {
   ];
 
   return config;
+}
+
+module.exports = (function () {
+  
+  let dist = commonConfig();
+  let examples = commonConfig();
+  delete examples.entry["interpret"];
+  delete examples.devtool;
+  examples.output.path = path.resolve(__dirname, "examples", "lib");
+
+  return [ dist, examples ];
 })();
