@@ -19,6 +19,8 @@ You can find example demo on the "docs" and "docs/examples" folder
 
 If you want live demo, you can command `npm run test` on the project folder, then it will pop up a browser view for the demo
 
+Live Demo: [https://onikuryh.github.io/interpret-js/](https://onikuryh.github.io/interpret-js/)
+
 ## Installation
 Method    | Description
 -----------|------------
