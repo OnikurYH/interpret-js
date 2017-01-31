@@ -1,3 +1,5 @@
+![InterpretJS Banner](https://onikuryh.github.io/interpret-js/img/interpret_js_banner.png)
+
 # InterpretJS
 Interpret / Translate text on JavaScript
 - - -
