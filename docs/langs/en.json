@@ -1,0 +1,22 @@
+{
+  "hello": "hello",
+  "world": "world",
+  "user": {
+    "name": "name",
+    "url": "url"
+  },
+  "toggleInterpret": "Toggle interpret",
+  "interpretFinished": "Translate used ",
+  "seconds": "second(s)",
+  "exampleIntro": "You can change between English and Chinese via \"Toggle interpret\" button",
+  "api": {
+    "title": "API",
+    "exampleLangauageFiles": "Example langauage files (Merge with English)",
+    "english": "English",
+    "chinese": "Chinese",
+    "usage": "Usage"
+  },
+  "footer": {
+    "Develop by": "Develop by"
+  }
+}

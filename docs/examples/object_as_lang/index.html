@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>InterpretJS</title>
+
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" type="text/css" href="../../css/index.css">
+</head>
+<body>
+  <div class="block">
+    <p>
+      <span data-interpret="hello"></span>
+      <span data-interpret="thisFieldOnlyInEnglish"></span>
+    </p>
+  </div>
+  <script type="text/javascript" src="../../lib/interpret.min.js"></script>
+  <script type="text/javascript">
+    var langs = {
+      en: {
+        hello: "hello",
+        thisFieldOnlyInEnglish: "This field only in English"
+      },
+      // We can also use "_" instance of "-"
+      zh_HK: {
+        hello: "你好"
+      }
+    };
+
+    var interpretElement = InterpretJS.createForElement(document.body);
+
+    InterpretJS.setLangsFromObject(langs)
+    .then(function () {
+      return interpretElement.load({ langCode: "zh_HK" });
+    })
+    .then(function () {
+      console.log("Finished");
+    })
+    .catch(function (err) {
+      console.error(err);
+    });
+  </script>
+</body>
+</html>

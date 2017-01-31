@@ -1,0 +1,132 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: 'Noto Sans TC', sans-serif;
+
+  font-size: 12pt;
+}
+
+body {
+  background-color: #15b290;
+}
+
+h1, h2, h3, p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 35pt;
+  font-weight: 300;
+  text-align: center;
+
+  padding: 60px 0;
+
+  background-color: #FFFFFF;
+}
+
+h1 img {
+  max-width: 100%;
+}
+
+h2 {
+  font-weight: 500;
+}
+
+h3 {
+  padding-left: 10px;
+  font-weight: 500;
+}
+
+a {
+  color: #14a180;
+}
+
+a:hover {
+  color: #139070;
+}
+
+button {
+  display: block;
+  width: 100%;
+  height: 40px;
+  font-size: 13pt;
+
+  color: #FFF;
+  background-color: #15b290;
+  border: 1px solid #14a180;
+
+  transition: 0.2s background-color;
+}
+
+button:hover {
+  background-color: #14a180;
+}
+
+button:focus {
+  outline-width: 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+table th {
+  font-weight: 500;
+}
+
+table td {
+  border: 1px solid #DDDDDD;
+}
+
+.lead {
+  font-size: 16pt;
+  font-weight: 400;
+}
+
+.block {
+  background-color: #EEEEEE;
+  padding: 10px 15px;
+}
+
+.block .title {
+  color: #FFFFFF;
+  background-color: #15b290;
+  margin: 15px 0;
+  padding: 10px 15px;
+}
+
+.highlight {
+  color: #14a180;
+}
+
+.code-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.code {
+  overflow: auto;
+  word-wrap: normal;
+  font-family: monospace;
+  font-size: 10pt;
+  color: #EEEEEE;
+  unicode-bidi: embed;
+  white-space: pre;
+  padding: 10px;
+  line-height: 150%;
+
+  background-color: #222222;
+}
+
+footer {
+  padding: 10px 0;
+  text-align: center;
+  color: #FFFFFF;
+}

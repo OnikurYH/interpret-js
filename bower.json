@@ -1,0 +1,21 @@
+{
+  "name": "interpret-js",
+  "description": "Interpret / translate text on JavaScript",
+  "main": "dist/interpret.min.js",
+  "authors": [
+    "OnikurYH <onikuryh@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "interpret",
+    "translate"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -1,16 +1,20 @@
 {
   "name": "interpret-js",
   "version": "0.0.1",
-  "description": "Interpret / translate text on Javascript",
+  "description": "Interpret / translate text on JavaScript",
   "main": "src/interpret",
   "scripts": {
     "build": "./node_modules/.bin/webpack",
-    "test": "./node_modules/.bin/http-server ./ -o -c-1"
+    "test": "./node_modules/.bin/http-server ./docs -o -c-1"
   },
   "keywords": [
     "interpret",
     "translate"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OnikurYH/interpret-js.git"
+  },
   "author": "OnikurYH <onikuryh@gmail.com>",
   "license": "MIT",
   "devDependencies": {
@@ -21,7 +25,6 @@
     "webpack": "^1.14.0"
   },
   "dependencies": {
-    "bluebird": "^3.4.7",
     "deepmerge": "^1.3.2",
     "promise": "^7.1.1"
   }

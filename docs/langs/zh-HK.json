@@ -1,0 +1,20 @@
+{
+  "hello": "你好",
+  "user": {
+    "name": "名稱",
+    "url": "網址"
+  },
+  "toggleInterpret": "切換翻譯",
+  "interpretFinished": "翻譯使用了",
+  "seconds": "秒",
+  "exampleIntro": "您可以透過\"切換解釋\"按鈕切換英文和中文",
+  "api": {
+    "exampleLangauageFiles": "範例語言檔案（與英文合併）",
+    "english": "英文",
+    "chinese": "中文",
+    "usage": "用法"
+  },
+  "footer": {
+    "Develop by": "開發:"
+  }
+}

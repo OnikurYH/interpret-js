@@ -16,13 +16,12 @@ module.exports = (class InterpretElement {
 
   load (opts = {}, callback) {
     let {
-      langCode = Config.defaultLanguage,
-      reload = false
+      langCode = Config.defaultLanguage
     } = opts;
 
     let chain;
-    if (!LanguageLoader.hasLoaded || reload)
-      chain = LanguageLoader.reload();
+    if (!LanguageLoader.hasLoaded)
+      chain = LanguageLoader.reloadFromFile();
     else
       chain = Promise.resolve();
     return chain.then(() => {

@@ -55,7 +55,7 @@ module.exports = (function () {
   let examples = commonConfig();
   delete examples.entry["interpret"];
   delete examples.devtool;
-  examples.output.path = path.resolve(__dirname, "examples", "lib");
+  examples.output.path = path.resolve(__dirname, "docs", "lib");
 
   return [ dist, examples ];
 })();

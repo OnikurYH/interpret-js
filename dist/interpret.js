@@ -66,10 +66,12 @@ window["InterpretJS"] =
 	}
 	
 	function reloadLanguageFiles(callback) {
-	  return LanguageLoader.reload(callback);
+	  return LanguageLoader.reloadFromFile(callback);
 	}
 	
-	function reloadByObject(obj) {}
+	function setLangsFromObject(obj, callback) {
+	  return LanguageLoader.setLangsFromObject(obj, callback);
+	}
 	
 	module.exports = {
 	  get config() {
@@ -80,7 +82,8 @@ window["InterpretJS"] =
 	  },
 	
 	  createForElement: createForElement,
-	  reloadLanguageFiles: reloadLanguageFiles
+	  reloadLanguageFiles: reloadLanguageFiles,
+	  setLangsFromObject: setLangsFromObject
 	};
 
 /***/ },
@@ -155,13 +158,19 @@ window["InterpretJS"] =
 	  }
 	
 	  _createClass(LanguageLoader, [{
+	    key: "setLangsFromObject",
+	    value: function setLangsFromObject(obj, callback) {
+	      this._langs = obj;
+	      return this._mergeLangObjs().nodeify(callback);
+	    }
+	  }, {
 	    key: "isLangCodeAvailable",
 	    value: function isLangCodeAvailable(targetLangCode) {
 	      return this._langs.hasOwnProperty(targetLangCode);
 	    }
 	  }, {
-	    key: "reload",
-	    value: function reload(callback) {
+	    key: "reloadFromFile",
+	    value: function reloadFromFile(callback) {
 	      var _this = this;
 	
 	      this._langs = {};
@@ -199,7 +208,7 @@ window["InterpretJS"] =
 	      }
 	
 	      return loadChain.then(function () {
-	        return _mergeLangObjs();
+	        return _this._mergeLangObjs();
 	      }).nodeify(callback);
 	    }
 	  }, {
@@ -1326,13 +1335,11 @@ window["InterpretJS"] =
 	      var opts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 	      var callback = arguments[1];
 	      var _opts$langCode = opts.langCode,
-	          langCode = _opts$langCode === undefined ? Config.defaultLanguage : _opts$langCode,
-	          _opts$reload = opts.reload,
-	          reload = _opts$reload === undefined ? false : _opts$reload;
+	          langCode = _opts$langCode === undefined ? Config.defaultLanguage : _opts$langCode;
 	
 	
 	      var chain = void 0;
-	      if (!LanguageLoader.hasLoaded || reload) chain = LanguageLoader.reload();else chain = Promise.resolve();
+	      if (!LanguageLoader.hasLoaded) chain = LanguageLoader.reloadFromFile();else chain = Promise.resolve();
 	      return chain.then(function () {
 	        if (!LanguageLoader.isLangCodeAvailable(langCode)) return Promise.reject(new Error("Language code " + langCode + " is not available!"));
 	

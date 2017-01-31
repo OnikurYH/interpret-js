@@ -18,11 +18,16 @@ module.exports = new (class LanguageLoader {
     return this._langs;
   }
 
+  setLangsFromObject (obj, callback) {
+    this._langs = obj;
+    return this._mergeLangObjs().nodeify(callback);
+  }
+
   isLangCodeAvailable (targetLangCode) {
     return this._langs.hasOwnProperty(targetLangCode);
   }
 
-  reload (callback) {
+  reloadFromFile (callback) {
     this._langs = {};
 
     let loadChain = Promise.resolve();
@@ -30,20 +35,22 @@ module.exports = new (class LanguageLoader {
       loadChain = loadChain.then(() => this._loadByCode(langCode));
     }
     return loadChain
-    .then(() => {
-      if (!this._langs.hasOwnProperty(Config.defaultLanguage))
-        return Promise.resolve();
+    .then(() => this._mergeLangObjs()).nodeify(callback);
+  }
 
-      let defaultLangObj = this._langs[Config.defaultLanguage];
-      for (let langCode in this._langs) {
-        if (langCode === Config.defaultLanguage)
-          continue;
-
-        this._langs[langCode] = deepmerge(defaultLangObj, this._langs[langCode], { clone: true });
-      }
-
+  _mergeLangObjs () {
+    if (!this._langs.hasOwnProperty(Config.defaultLanguage))
       return Promise.resolve();
-    }).nodeify(callback);
+
+    let defaultLangObj = this._langs[Config.defaultLanguage];
+    for (let langCode in this._langs) {
+      if (langCode === Config.defaultLanguage)
+        continue;
+
+      this._langs[langCode] = deepmerge(defaultLangObj, this._langs[langCode], { clone: true });
+    }
+
+    return Promise.resolve();
   }
 
   _loadByCode (langCode) {
