@@ -1,7 +1,7 @@
 {
   "name": "interpret-js",
   "description": "Interpret / translate text on JavaScript",
-  "main": "dist/interpret.min.js",
+  "main": "dist/interpret.js",
   "authors": [
     "OnikurYH <onikuryh@gmail.com>"
   ],
